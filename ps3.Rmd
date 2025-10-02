@@ -1,0 +1,336 @@
+---
+title: "Problem Set 3"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+```
+
+# 🎯 Statistical Learning Adventure: The TechStart Analytics Challenge
+
+**Course Material Covered:** Days 9-14 (Statistical Learning, Linear Regression, Classification, K-NN, Cross-Validation)
+
+**Estimated Time:** 90 minutes
+
+**Scenario:** You've just been hired as a junior data scientist at TechStart Analytics, a consulting firm that helps early-stage companies make data-driven decisions. Your first client is "CloudFit," a fitness app startup that wants to understand their user engagement and predict subscription renewals. You'll guide CloudFit through their analytics journey, applying the statistical learning concepts you've mastered.
+
+---
+
+## 📊 **Part 1: Statistical Learning Foundation (Day 9 Material)**
+*"Understanding the Landscape"*
+
+CloudFit's CEO, Sarah, approaches you with their user dataset containing information about 5,000 users. She's excited but overwhelmed by all the "machine learning" buzzwords she's been hearing at startup meetups.
+
+### **Problem 1.1: Supervised vs Unsupervised Learning (5 points)**
+
+Sarah asks: *"I keep hearing about supervised and unsupervised learning. Can you explain the difference using our CloudFit data?"*
+
+**Variables in CloudFit dataset:**
+
+- `user_id`: Unique identifier
+- `age`: User age
+- `workout_frequency`: Sessions per week
+- `app_usage_minutes`: Daily app usage
+- `subscription_renewed`: Yes/No (whether they renewed after free trial)
+- `premium_features_used`: Count of premium features accessed
+
+**Your Task:** 
+
+a) Identify which CloudFit business questions would require **supervised learning** and which would require **unsupervised learning**.
+b) For each type, name the specific technique you'd recommend and explain why.
+
+```{r problem-1-1}
+# Your answer here:
+
+```
+
+---
+
+### **Problem 1.2: Bias-Variance Trade-off (5 points)**
+
+Sarah shows you two prototype models her previous intern built:
+
+- **Model A**: A simple model that assumes all users behave identically
+- **Model B**: A complex model that memorizes every user's exact behavior
+
+**Your Task:** Explain the bias-variance trade-off using these examples. What problems do you foresee with each model?
+
+```{r problem-1-2}
+# Your answer here:
+
+```
+
+---
+
+## 📈 **Part 2: Linear Regression Analysis (Day 10 Material)**
+*"Building the Foundation Model"*
+
+Sarah wants to start simple: "Can we predict how many minutes users will spend in the app daily based on their characteristics?"
+
+### **Problem 2.1: Linear Regression Setup (8 points)**
+
+You decide to build a linear regression model: `app_usage_minutes ~ age + workout_frequency + premium_features_used`
+
+**Given the following (simplified) results:**
+```
+Coefficients:
+Intercept: 15.2
+age: -0.3
+workout_frequency: 8.5
+premium_features_used: 12.1
+
+R-squared: 0.67
+Residual Standard Error: 18.3
+```
+
+**Your Tasks:**
+
+a) Write the fitted regression equation
+b) Interpret each coefficient in business terms
+c) What does the R-squared value tell Sarah about model performance?
+d) Predict app usage for a 25-year-old who works out 4 times/week and uses 2 premium features
+
+```{r problem-2-1}
+# Your answers here:
+
+# a) Equation: 
+
+
+# b) Interpretations:
+
+
+# c) R-squared interpretation:
+
+
+# d) Prediction calculation:
+age <- 25
+workout_frequency <- 4
+premium_features_used <- 2
+
+# Calculate predicted usage here
+
+```
+
+---
+
+### **Problem 2.2: Model Evaluation (7 points)**
+
+Sarah asks: *"How do we know if this model is actually good? What should we look for?"*
+
+**Your Task:** Describe three key methods for evaluating linear regression models and what each tells us about model quality.
+
+```{r problem-2-2}
+# Your answer here:
+
+# 1. Method 1:
+
+
+# 2. Method 2:
+
+
+# 3. Method 3:
+
+```
+
+---
+
+## 🎯 **Part 3: Classification Challenge (Days 11-12 Material)**
+*"Predicting the Critical Decision"*
+
+Now Sarah wants to tackle the big question: "Can we predict which users will renew their subscriptions?"
+
+### **Problem 3.1: Classification vs Regression (5 points)**
+
+**Your Task:** Explain to Sarah why predicting subscription renewal requires a different approach than predicting app usage minutes. What makes this a classification problem?
+
+```{r problem-3-1}
+# Your answer here:
+
+```
+
+---
+
+### **Problem 3.2: Confusion Matrix Analysis (10 points)**
+
+You build a logistic regression model to predict renewals. Here are the results on your test set of 1,000 users:
+
+```
+┌─────────────────────┬─────────────────────┬───────────────────┐
+│                     │ Predicted No Renewal│ Predicted Renewal │
+├─────────────────────┼─────────────────────┼───────────────────┤
+│ Actual No Renewal   │         720         │        80         │
+│ Actual Renewal      │         120         │        80         │
+└─────────────────────┴─────────────────────┴───────────────────┘
+```
+**Your Tasks:**
+
+a) Calculate accuracy, precision, recall, and F1-score
+b) Sarah asks: "What do these numbers mean for our business?"
+c) Which metric should CloudFit prioritize and why?
+
+```{r problem-3-2}
+# Your answers here:
+
+# a) Calculate metrics:
+accuracy <- 
+precision <- 
+recall <- 
+f1_score <- 
+
+# Print results
+cat("Accuracy:", accuracy)
+cat("Precision:", precision)
+cat("Recall:", recall)
+cat("F1-score:", f1_score)
+
+# b) Business meaning:
+
+
+# c) Priority metric and reasoning:
+
+```
+
+---
+
+## 🔍 **Part 4: K-NN Implementation (Day 13 Material)**
+*"Learning from Neighbors"*
+
+Sarah's developer friend mentions k-nearest neighbors: *"Maybe we should consider k-NN instead of logistic regression?"*
+
+### **Problem 4.1: K-NN vs Logistic Regression (8 points)**
+
+**Your Task:** Compare k-NN and logistic regression for CloudFit's renewal prediction problem. Discuss:
+
+a) How each algorithm makes predictions
+b) Advantages and disadvantages of each
+c) Which might work better for CloudFit and why?
+
+```{r problem-4-1}
+# Your answer here:
+
+# a) How they work:
+
+
+# b) Trade-offs:
+
+
+# c) Recommendation:
+
+```
+
+---
+
+### **Problem 4.2: Choosing K (7 points)**
+
+You decide to test k-NN with different values of k. Here are the accuracy results:
+
+- k=1: 78% (training), 65% (validation)
+- k=5: 76% (training), 72% (validation)  
+- k=15: 74% (training), 73% (validation)
+- k=50: 71% (training), 71% (validation)
+
+**Your Task:** 
+
+a) What pattern do you observe as k increases?
+b) Which k value would you choose and why?
+c) What does this tell us about bias-variance trade-off?
+
+```{r problem-4-2}
+# Your answers here:
+
+# a) Pattern observed:
+
+
+# b) Choice and reasoning:
+
+
+# c) Bias-Variance interpretation:
+
+```
+
+---
+
+## ✅ **Part 5: Cross-Validation Strategy (Day 14 Material)**
+*"Ensuring Robust Results"*
+
+Sarah is getting concerned: *"How do we know our results will hold up when we deploy this model to real users?"*
+
+### **Problem 5.1: Cross-Validation Design (10 points)**
+
+**Your Task:** Design a cross-validation strategy for CloudFit's models. Address:
+
+a) What type of cross-validation would you use and why?
+b) How would you handle the fact that CloudFit's data includes users from different time periods?
+c) What metrics would you track across folds?
+
+```{r problem-5-1}
+# Your answer here:
+
+# a) CV Type and reasoning:
+
+
+# b) Time considerations:
+
+
+# c) Metrics to track:
+
+```
+
+---
+
+### **Problem 5.2: Model Selection (8 points)**
+
+Using 5-fold cross-validation, you get these results:
+
+```
+┌─────────────────────┬──────────────┬─────────┬──────────┬─────────┐
+│       Model         │ Mean Accuracy│ Std Dev │ Mean F1  │ Std Dev │
+├─────────────────────┼──────────────┼─────────┼──────────┼─────────┤
+│ Logistic Regression │     82%      │   2%    │   78%    │   3%    │
+│ K-NN (k=5)          │     79%      │   5%    │   75%    │   7%    │
+│ K-NN (k=15)         │     81%      │   3%    │   76%    │   4%    │
+└─────────────────────┴──────────────┴─────────┴──────────┴─────────┘
+```
+
+**Your Task:** 
+
+a) Which model would you recommend to Sarah?
+b) What additional considerations should influence the final decision?
+c) How would you present these results to a non-technical stakeholder?
+
+```{r problem-5-2}
+# Your answers here:
+
+# a) Recommendation:
+
+
+# b) Additional considerations:
+
+
+# c) Non-technical presentation:
+
+```
+
+---
+
+## 🎊 **Conclusion: The Business Impact**
+
+You present your findings to Sarah and the CloudFit team. Your analysis reveals that workout frequency and premium feature usage are the strongest predictors of renewal, while age shows younger users are more likely to renew.
+
+**Final Reflection (5 points):** 
+Write a brief summary of how the statistical learning concepts from Days 9-14 came together to solve CloudFit's business problem. What would be your next steps?
+
+```{r final-reflection}
+# Your reflection here:
+
+# Integration of concepts:
+
+
+# Next steps:
+
+```
